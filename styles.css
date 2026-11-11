@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --bg: #030202;
+    --text: #eceae6;
+    --muted: #a3a099;
+    --para: #bbb9b5;
+    --underline: #3f3c3c;
+    --max-width: 35rem;
+    --line-height: 1.7;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Inter, system-ui, sans-serif;
+    line-height: var(--line-height);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 5rem 1.5rem 2rem;
+}
+
+h1 {
+    font-family: "Space Mono", Georgia, serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(2.2rem, 7vw, 3rem);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+}
+
+.role {
+    color: var(--muted);
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    text-transform: lowercase;
+    margin-bottom: 1.8rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--para);
+}
+
+nav {
+    margin-top: 1.8rem;
+    display: flex;
+    gap: 1.2rem;
+}
+
+a {
+    /* font-family: "Space Mono", Georgia, serif;
+    font-weight: 300; */
+    color: var(--muted);
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--underline);
+    text-underline-offset: 3px;
+}
+
+a:hover {
+    text-decoration-color: aqua;
+}
+
+.separator {
+    border: none;
+    height: 8px;
+    margin: 1.6rem 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M0 4 Q 7.5 0 15 4 T 30 4 T 45 4 T 60 4 T 75 4 T 90 4 T 105 4 T 120 4' fill='none' stroke='%2300FFFF' stroke-width='1.5'/%3E%3C/svg%3E") repeat-x center;
+    background-size: 100px 12px;
+}
+
+footer {
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/* slow fade-in */
+main>* {
+    animation: rise 0.8s ease both;
+}
+
+main>*:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+main>*:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+main>*:nth-child(3) {
+    animation-delay: 0.25s;
+}
+
+main>*:nth-child(4) {
+    animation-delay: 0.35s;
+}
+
+main>*:nth-child(5) {
+    animation-delay: 0.45s;
+}
+
+main>*:nth-child(6) {
+    animation-delay: 0.45s;
+}
+
+main>*:nth-child(7) {
+    animation-delay: 0.45s;
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    main>* {
+        animation: none;
+    }
+}
+
+.back {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+    text-decoration: none;
+}
+
+.back:hover {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+}
+
+.socials {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.socials li {
+    margin-bottom: 0.75rem;
+}
+
+.socials a {
+    font-size: 1.05rem;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.header h1 {
+    margin-bottom: 0.25rem;
+}
+
+.header .role {
+    margin-bottom: 0;
+}
