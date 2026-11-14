@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('keyframes.css');
 
 :root {
     --bg: #030202;
@@ -8,6 +9,7 @@
     --underline: #3f3c3c;
     --max-width: 42rem;
     --line-height: 1.7;
+    --neon-green: #39ff14
 }
 
 * {
@@ -24,6 +26,20 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(to bottom,
+            transparent 0px,
+            transparent 2px,
+            rgba(42, 44, 44, 0.623) 3px);
+    background-size: 100% 4px;
+    animation: scan 1s linear infinite;
+    pointer-events: none;
+    z-index: 0;
 }
 
 main {
@@ -52,6 +68,12 @@ h1 {
     margin-bottom: 1.8rem;
 }
 
+.role::after {
+    content: " ▍";
+    color: aqua;
+    animation: blink 1.2s steps(1) infinite;
+}
+
 p {
     margin-bottom: 1rem;
     color: var(--para);
@@ -75,6 +97,7 @@ a {
 
 a:hover {
     text-decoration-color: aqua;
+    text-shadow: 0 0 6px rgba(0, 255, 255, 0.35);
 }
 
 .separator {
@@ -129,18 +152,6 @@ main>*:nth-child(7) {
     animation-delay: 0.45s;
 }
 
-@keyframes rise {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-
-    to {
-        opacity: 1;
-        transform: none;
-    }
-}
-
 @media (prefers-reduced-motion: reduce) {
     main>* {
         animation: none;
@@ -184,15 +195,28 @@ main>*:nth-child(7) {
 .avatar {
     width: 72px;
     height: 72px;
-    border-radius: 16px;
+    border-radius: 8px;
     object-fit: cover;
     flex-shrink: 0;
 }
 
 .header h1 {
     margin-bottom: 0.25rem;
+    text-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
 }
 
 .header .role {
     margin-bottom: 0;
+}
+
+.neon-prompt {
+    color: var(--neon-green);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-weight: 600;
+    margin-right: 0.4em;
+    text-shadow:
+        0 0 4px var(--neon-green),
+        0 0 10px var(--neon-green),
+        0 0 20px var(--neon-green);
+    animation: neon-flicker 1.6s infinite;
 }
