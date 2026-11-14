@@ -209,6 +209,7 @@ main>*:nth-child(7) {
     margin-bottom: 0;
 }
 
+/* used for the flicking '>' */
 .neon-prompt {
     color: var(--neon-green);
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;

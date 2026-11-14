@@ -1,0 +1,92 @@
+.now-playing {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    width: fit-content;
+    max-width: 100%;
+    padding: 0.65rem 0.9rem 0.65rem 0.65rem;
+    font-family: "Space Mono", monospace;
+    margin-top: 1.5rem;
+}
+
+.now-playing-art {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-color: #0e0d0d;
+    flex-shrink: 0;
+    border: 1px solid black;
+    position: relative;
+}
+
+.now-playing-art::after {
+    content: "";
+    position: absolute;
+    inset: 38%;
+    border-radius: 50%;
+    background: black;
+    border: 1px solid rgba(101, 102, 102, 0.25);
+}
+
+.now-playing.is-playing .now-playing-art {
+    animation: disc-spin 8s linear infinite;
+}
+
+.now-playing-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.now-playing-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+}
+
+.now-playing.is-playing .now-playing-label {
+    color: var(--neon-green);
+    text-shadow: 0 0 6px var(--neon-green);
+}
+
+.now-playing-track {
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
+}
+
+.now-playing-artist {
+    font-weight: 400;
+    color: var(--muted);
+    font-size: 0.82rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
+}
+
+@keyframes disc-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .now-playing,
+    .now-playing.is-playing .now-playing-art {
+        animation: none;
+    }
+}
